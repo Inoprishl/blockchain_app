@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+    <a href="/lessons/">Back to lessons list</a>
+    <h2>{{step.title}}</h2>
+    <p>{{step.body}}</p>
+    {% if has_previous %}
+        <a href="/lessons/{{lesson}}/{{pr_step}}">Back</a>
+    {% endif %}
+    {% if has_next %}
+        <a href="/lessons/{{lesson}}/{{next_step}}">Next</a>
+    {% endif %}
+{% endblock content %}
+{% block image %}
+    {% if step.image %}
+        <img src="{% static 'images/' %}{{ step.image }}" alt="omg">
+    {% endif %}  
+{% endblock image %}
+{% block script %}
+    {% if step.script %}
+        <script src="{% static 'scripts/'%}{{ step.script }}"></script>
+    {% endif %}
+{% endblock script %}

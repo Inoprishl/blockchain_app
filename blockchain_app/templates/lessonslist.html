@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block title %}
+Blockchain lessons
+{% endblock title %}
+
+{% block content %}
+{% for l in lessons %}
+    <div class="lesson-block" slug="{{l.slug}}">
+        <h3>{{ l.title }}</h3>
+        <p>{{l.body}}</p>
+        <p>{{l.steps}}</p>
+    </div>
+{% endfor %}
+{% endblock content %}
+
+{% block script %}
+<script>
+    lessons = document.querySelectorAll('.lesson-block').forEach(lesson =>{
+        lesson.addEventListener('click', (event) => {
+            slug = lesson.getAttribute('slug')
+            location.href = `${slug}/start/`
+        })
+    })
+</script>
+{% endblock script %}
