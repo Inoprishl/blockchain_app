@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}
+Blockchain lessons
+{% endblock title %}
+
+{% block content %}
+<h1 class="p-3 fw-bold text-center">Узнайте о блокчейне все!</h1>
+<div class="container-xxl text-center w-75 d-flex justify-content-center p-3" style="flex-wrap: wrap;">
+    {% for l in lessons %}
+    <div class="lesson-block card m-2 border rounded d-flex align-items-center p-2" style="min-width: 300px; min-height:400px; background-color: var(--lightblue); max-width: 300px;">
+        {% if l.image %}
+        <img src="{% static 'images/' %}{{ l.image }}" alt="cover" class="object-fit-cover border rounded" style="max-height: 200px; max-width:200px">
+        {% endif %}
+        <h4 class="card-title">{{ l.title }}</h4>
+        <p class="card-body p-0">{{l.body}}</p>
+        <a href="{{l.slug}}/start/" class="btn btn-primary">Узнать больше</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+    lessons = document.querySelectorAll('.lesson-block').forEach(lesson =>{
+        lesson.addEventListener("mouseover", (event)=>{
+            lesson.classList.add('shadow')
+        })
+        lesson.addEventListener('mouseout', (event)=>{
+            lesson.classList.remove('shadow')
+        })
+    })
+</script>
+{% endblock script %}
