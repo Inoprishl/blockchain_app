@@ -27,4 +27,4 @@ def step_detail_view(request, lesson_slug, step_slug):
         pr_step = steps_order.get(step.index-1, '')
         next_step = steps_order.get(step.index+1, '')
         
-    return render(request, 'step.html', {'lesson':lesson.slug, 'step':step, 'has_previous':has_previous, 'has_next':has_next, 'pr_step':pr_step, 'next_step':next_step })
+    return render(request, 'step.html', {'lesson':lesson, 'step':step, 'has_previous':has_previous, 'has_next':has_next, 'pr_step':pr_step, 'next_step':next_step })

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'config',
-    'main_app'
+    'main_app',
+    'cyrtranslit'
 ]
 
 MIDDLEWARE = [

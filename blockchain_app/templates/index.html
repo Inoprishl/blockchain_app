@@ -1,17 +1,31 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
-</head>
-<body class='body'>
-    {% block content %}
-    {% endblock content %}
-    {% block image %}
-    {% endblock image %}
+    <link rel="stylesheet" href="{% static 'styles/'%}style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap" rel="stylesheet">
     {% block script %}
     {% endblock script %}
+</head>
+<body class='body d-flex flex-column' style="background-color: var(--bs-body-bg); min-height:110vh">
+    <nav class="navbar position-sticky d-flex justify-content-between">
+        <a href="/lessons/" class="p-2" style="font-family: Goldman; font-weight: bold; font-size: calc(1.375rem + 1.5vw); color: var(--bs-heading-color); text-decoration:none">BLOCKCHAIN APP</a>
+    </nav>
+    <div class="d-flex align-items-center w-100 min-vh-100" style="flex-direction: column;">
+        {% block image %}
+        {% endblock image %}
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <div class="bot d-flex justify-content-center align-items-center align-self-center flex-wrap position-relative">
+        <p class="p-1 pb-0">Blockchain app.</p>
+        <p class="p-1 pb-0">Made by Inoprishl.</p>
+        <p class="p-1 pb-0">All rights reserved.</p>
+    </div>
 </body>
 </html>
