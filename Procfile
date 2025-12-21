@@ -1,0 +1,1 @@
+web: python manage.py migrate && python manage.py loaddata ./data.json --ignorenonexistent && python manage.py collectstatic --noinput && gunicorn config.wsgi && gunicorn config.wsgi --bind 0.0.0.0:$PORT
